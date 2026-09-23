@@ -1,0 +1,6 @@
+{
+  "name": "Sông Mê Công",
+  "description": "Sông Mê Công - Mê Kông Ký Sự & Bản Đồ Số 4.763 KM, Chuyên Đề Địa Lí 11, 9 Cửa Sông Cửu Long, Lưu Vực 810.000 km², 6 Quốc Gia MRC và Chatbot AI Kiến Sáng Giọng Nói - Trường TH, THCS & THPT FPT Hậu Giang.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
