@@ -52,7 +52,6 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems = [
     { id: 'overview', label: t.nav_overview, icon: Globe, highlight: true },
     { id: 'knowledge', label: t.nav_knowledge, icon: BookOpen, highlight: true },
-    { id: 'tourism', label: t.nav_tourism, icon: Camera },
     { id: 'mrc', label: t.nav_mrc, icon: BookOpen },
     { id: 'vietnam', label: t.nav_vietnam, icon: Waves },
     { id: 'games', label: t.nav_games, icon: Gamepad2 },

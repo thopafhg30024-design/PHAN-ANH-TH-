@@ -223,10 +223,10 @@ export const HIGHSCHOOL_QUIZ: QuizQuestion[] = [
       'MRC chỉ giải quyết tranh chấp thương mại đường thủy, không có cơ chế quan trắc hay cảnh báo thiên tai'
     ],
     correctIndex: 0,
-    explanation: 'Chính xác! Việt Nam là thành viên sáng lập tích cực và trách nhiệm cao của MRC; đăng cai Hội nghị Cấp cao lần 2 (2014 tại TP.HCM), giữ chức Chủ tịch Hội đồng MRC (2018, 2022), chủ trì nghiên cứu độc lập MDS và kiên trì vận động chia sẻ dữ liệu thủy văn thượng nguồn.',
-    hint: 'Ghi nhớ mốc Hội nghị Cấp cao lần 2 năm 2014 tại TP.HCM và công trình nghiên cứu MDS.',
+    explanation: 'Chính xác theo SGK Chuyên đề Địa lí 11 (trang 14 - 16)! Việt Nam thể hiện 4 vai trò lớn trong Uỷ hội sông Mê Công: quản lí giám sát tài nguyên xuyên biên giới (hoàn thành 2 dự án song phương với Cam-pu-chia); lồng ghép hoạt động Uỷ hội với hợp tác đa phương/song phương (14 đối tác phát triển); xây dựng các chiến lược của Uỷ hội; đàm phán kí kết Quy chế sử dụng nước và thúc đẩy dự án. Tiêu biểu: Đăng cai Hội nghị Cấp cao lần 2 năm 2014 tại TP.HCM và đảm nhiệm Chủ tịch Hội đồng MRC các năm 2018, 2022.',
+    hint: 'Ghi nhớ mốc Hội nghị Cấp cao lần 2 năm 2014 tại TP.HCM và vai trò Chủ tịch Hội đồng MRC các năm 2018, 2022.',
     badgeEarned: 'Nhà Lãnh Đạo Ngoại Giao MRC',
-    gradeLevelTag: 'Chuyên đề Địa lí 11 - Trọng tâm MRC & VN'
+    gradeLevelTag: 'Chuyên đề Địa lí 11 - Trang 14-16 SGK'
   }
 ];
 

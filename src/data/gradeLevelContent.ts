@@ -183,27 +183,27 @@ export const GRADE_SPOTLIGHTS_BY_CHAPTER: Record<string, Record<EducationLevel, 
       actionPrompt: { vi: 'Hỏi Kiến Sáng về 4 thành viên sáng lập Hiệp định 1995', en: 'Ask Kien Sang about the 4 founding members of the 1995 Agreement' }
     },
     highschool: {
-      tag: { vi: '🎓 Dành cho THPT: Trọng Tâm SGK Địa Lí 11 (Bộ GD&ĐT)', en: '🎓 High School Gr.11: MOET Grade 11 Curriculum Core' },
-      title: { vi: '4 Vai Trò MRC, 5 Thủ Tục Kỹ Thuật & 6 Đóng Góp Của Việt Nam', en: '4 MRC Roles, 5 Water Procedures & Vietnam\'s 6 Contributions' },
+      tag: { vi: '🎓 Dành cho THPT: Trọng Tâm SGK Địa Lí 11 (Bộ Kết Nối Tri Thức)', en: '🎓 High School Gr.11: MOET Grade 11 Textbook Core' },
+      title: { vi: 'Mục Tiêu, Hoạt Động Của Uỷ Hội Sông Mê Công & 4 Vai Trò Của Việt Nam', en: 'MRC Objectives, Core Activities & Vietnam\'s 4 Distinct Roles' },
       description: {
-        vi: 'Nội dung cốt lõi của bài kiểm tra học kỳ và kỳ thi tốt nghiệp THPT theo Chương trình GDPT 2018: Nắm chắc 4 vai trò của MRC, 5 thủ tục quản lí nước (Hình 6 trang 10 SGK) và 6 hành động cụ thể của Việt Nam.',
-        en: 'Key syllabus content for Grade 11 Geography examinations: Master the 4 MRC roles, 5 water procedures (Figure 6 p.10 textbook), and Vietnam\'s 6 strategic actions.'
+        vi: 'Nội dung chuẩn kiến thức SGK Chuyên đề Địa lí 11 (Mục I trang 8-16): Nắm vững Lí do ra đời, Mục tiêu, Một số hoạt động tiêu biểu của Uỷ hội sông Mê Công (5 thủ tục kỹ thuật, 5 dự án song phương, 7 thành tựu 2016-2020) và 4 vai trò của Việt Nam trong Uỷ hội.',
+        en: 'Official syllabus of Grade 11 Geography textbook (Section I, pp. 8-16): Master the Rationale, Objectives, Core MRC Activities (5 technical procedures, 5 transboundary bilateral projects, 7 achievements 2016-2020), and Vietnam\'s 4 strategic roles in the Commission.'
       },
       bulletPoints: {
         vi: [
-          '4 Vai trò MRC: (1) Điều phối & quản lí sử dụng bền vững; (2) Thực thi 5 thủ tục nước; (3) Trung tâm dữ liệu & cảnh báo sớm; (4) Diễn đàn hợp tác ngoại giao.',
-          '5 Thủ tục nước: PDIES (chia sẻ số liệu 2001), PWUM (giám sát nước 2003), PNPCA (thông báo & tham vấn trước 2003), PMFM (duy trì dòng chảy 2006), PWQ (chất lượng nước 2009).',
-          'Quy trình PNPCA: Bắt buộc tham vấn tối thiểu 6 tháng đối với mọi công trình thủy điện dự kiến xây dựng trên dòng chính Mê Kông.',
-          '6 Đóng góp của Việt Nam: Thành lập Ủy ban Mê Kông VN (1978), ký kết Hiệp định 1995, chủ trì Hội nghị Cấp cao 2 (2014), nghiên cứu MDS, đàm phán xả nước với Trung Quốc, tiên phong NQ 120/NQ-CP.'
+          'Mục tiêu Uỷ hội MRC (trang 9): Thúc đẩy, phối hợp quản lí và phát triển tài nguyên nước cũng như các tài nguyên có liên quan một cách bền vững vì lợi ích chung của các quốc gia sông Mê Công và an sinh của cộng đồng.',
+          'Các hoạt động tiêu biểu của MRC (trang 9-14): Diễn đàn ngoại giao nước & hợp tác vùng; Hỗ trợ kĩ thuật và xây dựng công cụ thực hành; Thực hiện 5 thủ tục nước (PDIES 2001, PWUM 2003, PNPCA 2003, PMFM 2006, PWQ 2011); Thực hiện 5 dự án song phương và các sáng kiến (CCAI, ISH), chương trình hợp tác (AIP, DMP, EP, FP, NAP).',
+          '4 Vai trò của Việt Nam trong MRC (Mục 4 trang 14-16 SGK): (1) Quản lí, giám sát tài nguyên xuyên biên giới (hoàn thành 2 dự án song phương với Campuchia); (2) Lồng ghép hoạt động của Uỷ hội và các hợp tác đa phương, song phương (14 đối tác phát triển, hợp tác liên lưu vực); (3) Xây dựng các chiến lược của Uỷ hội (tái cấu trúc và nội vùng hoá); (4) Đàm phán, kí kết bộ Quy chế sử dụng nước, thúc đẩy các chương trình, dự án của Uỷ hội.',
+          'Các sự kiện tiêu biểu của Việt Nam (trang 16 SGK): Đăng cai Hội nghị Cấp cao lần 2 của MRC năm 2014 tại TP.HCM ("An ninh nguồn nước, năng lượng, lương thực"); Đảm nhiệm vai trò Chủ tịch Hội đồng MRC các năm 2018 và 2022; Tiên phong Nghị quyết 120/NQ-CP (2017) phát triển bền vững thuận tự nhiên.'
         ],
         en: [
-          '4 MRC Core Roles: (1) Basin-wide coordinator; (2) Technical procedure administrator; (3) Data & warning hub; (4) Water diplomacy platform.',
-          '5 Procedures: PDIES (data exchange 2001), PWUM (monitoring 2003), PNPCA (prior consultation 2003), PMFM (flow maintenance 2006), PWQ (water quality 2009).',
-          'PNPCA mechanism: Mandatory 6-month prior consultation for mainstream hydropower development proposals.',
-          'Vietnam\'s 6 contributions: Founding VNMC (1978), co-signing 1995 Agreement, hosting 2nd Summit (2014), leading MDS study, transboundary release talks with China, pioneering Resolution 120.'
+          'MRC Objectives (p.9): Promote and coordinate sustainable management and development of water and related resources for the mutual benefit of all Mekong countries and community well-being.',
+          'Core MRC Activities (pp.9-14): Water diplomacy and regional cooperation platform; Technical support and practical tool development; Enforcement of 5 water procedures (PDIES 2001, PWUM 2003, PNPCA 2003, PMFM 2006, PWQ 2011); 5 bilateral transboundary projects and initiatives (CCAI, ISH), programs (AIP, DMP, EP, FP, NAP).',
+          'Vietnam\'s 4 Specific Roles in MRC (Section 4, pp.14-16): (1) Managing and monitoring transboundary resources (completed 2 bilateral projects with Cambodia); (2) Mainstreaming MRC activities with multilateral & bilateral cooperation (14 development partners, inter-basin dialogues); (3) Formulating MRC strategies (restructuring and basin-wide ownership); (4) Negotiating and signing the Water Use Rules, advancing MRC programs and projects.',
+          'Vietnam\'s Milestones (p.16): Hosted the 2nd MRC Summit in 2014 in HCMC; held MRC Council Chairmanship in 2018 and 2022; pioneered Government Resolution 120/NQ-CP (2017) for nature-based sustainable development.'
         ]
       },
-      actionPrompt: { vi: 'Hỏi Kiến Sáng phân tích quy trình tham vấn trước PNPCA', en: 'Ask Kien Sang to analyze the PNPCA prior consultation procedure' }
+      actionPrompt: { vi: 'Hỏi Kiến Sáng về 4 vai trò của Việt Nam trong Uỷ hội sông Mê Công', en: 'Ask Kien Sang about Vietnam\'s 4 distinct roles in the Mekong River Commission' }
     }
   },
   'security-solutions': {

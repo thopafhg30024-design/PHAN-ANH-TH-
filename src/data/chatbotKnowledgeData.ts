@@ -177,65 +177,90 @@ The Mekong Delta's estuarine distributary network:
     }
   },
   {
-    keywords: ['vai trò mrc', 'vai trò của ủy hội', 'vai trò ủy hội', 'sự tham gia của việt nam', 'việt nam trong mrc', 'đóng góp của việt nam', 'role of mrc', 'vietnam participation'],
+    keywords: ['vai trò mrc', 'vai trò của ủy hội', 'vai trò ủy hội', 'sự tham gia của việt nam', 'việt nam trong mrc', 'đóng góp của việt nam', 'mục tiêu của ủy hội', 'hoạt động của ủy hội', 'role of mrc', 'vietnam participation'],
     answer: {
       vi: {
-        primary: `🐜✨ **Ủy hội MRC và Việt Nam giống như những người bạn tốt bảo vệ dòng sông:**
+        primary: `🐜✨ **Ủy hội Sông Mê Công (MRC) và Việt Nam (Kiến thức Tiểu học):**
 
-- 🤝 **MRC là gì:** Là một ngôi nhà chung của 4 nước (Việt Nam, Lào, Campuchia, Thái Lan) cùng nhau nói chuyện, chia sẻ nguồn nước công bằng, không ai làm hại dòng sông của nhau!
-- 🇻🇳 **Việt Nam làm gì:** Nước mình ở cuối nguồn nên luôn nhắc các bạn cùng nhau giữ gìn nguồn nước sạch, bảo vệ cá tôm và báo tin cho bà con khi có lũ lụt hay hạn hán!`,
-        secondary: `🐜✨ **4 Vai trò của MRC & Sự tham gia của Việt Nam (Kiến thức THCS):**
+- 🤝 **MRC là gì:** Là ngôi nhà chung được thành lập từ năm 1995 bởi 4 quốc gia: Việt Nam, Lào, Campuchia và Thái Lan để cùng nhau quản lí, bảo vệ nguồn nước sông Mê Kông vì lợi ích chung và an sinh cộng đồng.
+- 🌊 **Hoạt động của MRC:** Giúp các nước bắt tay nhau chia sẻ số liệu nước, báo tin lũ lụt và hạn hán, không làm tổn hại đến nguồn nước của bạn.
+- 🇻🇳 **Việt Nam tham gia thế nào:** Nước mình ở hạ lưu (ĐBSCL) nên rất gương mẫu, luôn nhắc nhở mọi người giữ sạch dòng nước và bảo vệ cá tôm!`,
+        secondary: `🐜✨ **Mục Tiêu, Hoạt Động Của Uỷ Hội Sông Mê Công & Việt Nam (THCS - SGK Địa lí 11):**
 
-- **4 Vai trò cốt lõi của MRC:**
-  1. Quản lí và chia sẻ nguồn nước công bằng, bền vững.
-  2. Giám sát các dự án xây đập qua quy trình tham vấn trước (PNPCA).
-  3. Đo đạc số liệu, cảnh báo sớm lũ lụt và hạn mặn.
-  4. Hợp tác đối thoại với Trung Quốc, Myanmar và các tổ chức quốc tế.
-- **Việt Nam tham gia rất tích cực:** Là thành viên sáng lập Hiệp định 1995; thành lập Ủy ban Sông Mê Kông Việt Nam; bảo vệ đồng bằng châu thổ và sinh kế 20 triệu người dân ĐBSCL.`,
-        highschool: `🐜✨ **Chuẩn Yêu cầu cần đạt Chuyên đề Địa lí 11 - Vai trò MRC & Đóng góp của Việt Nam:**
+- 🎯 **Mục tiêu của Uỷ hội sông Mê Công (MRC):**
+  Thúc đẩy, phối hợp quản lí và phát triển tài nguyên nước cũng như các tài nguyên có liên quan một cách bền vững vì lợi ích chung của các quốc gia sông Mê Công và an sinh của cộng đồng.
+- 🌊 **Các hoạt động tiêu biểu của Uỷ hội:**
+  1. Là diễn đàn ngoại giao nước và hợp tác vùng để chia sẻ lợi ích và giải quyết các vấn đề xuyên biên giới.
+  2. Hỗ trợ kĩ thuật, xây dựng công cụ thực hành và hỗ trợ quy hoạch lưu vực sông.
+  3. Thông qua 5 thủ tục nước quan trọng (PDIES chia sẻ số liệu, PWUM giám sát, PNPCA tham vấn trước, PMFM duy trì dòng chảy, PWQ chất lượng nước).
+  4. Thực hiện các dự án quản lí tổng hợp xuyên biên giới và các sáng kiến (thích ứng BĐKH CCAI, thuỷ điện bền vững ISH).
+- 🇻🇳 **Việt Nam trong Uỷ hội sông Mê Công:**
+  Là thành viên tích cực, thành lập Uỷ ban sông Mê Công Việt Nam (18/9/1978), cùng Campuchia hoàn thành 2 dự án song phương, tổ chức Hội nghị Cấp cao lần 2 (2014) và làm Chủ tịch Hội đồng MRC các năm 2018, 2022.`,
+        highschool: `🐜✨ **Chuẩn Kiến Thức SGK Chuyên Đề Địa Lí 11 (Bộ Kết Nối Tri Thức Với Cuộc Sống - Trang 8 đến 16):**
 
-🌊 **I. BỐN VAI TRÒ CỐT LÕI CỦA ỦY HỘI SÔNG MÊ CÔNG (MRC):**
-1. **Điều phối & Quản lí tài nguyên nước bền vững:** Thúc đẩy sử dụng công bằng, hợp lí; cân bằng lợi ích phát triển kinh tế và an ninh sinh thái.
-2. **Thực thi 5 thủ tục kỹ thuật:** PDIES (chia sẻ dữ liệu), PWUM (giám sát nước), PNPCA (thông báo, tham vấn trước 6 tháng), PMFM (duy trì dòng chảy kiệt), PWQ (chất lượng nước).
-3. **Cơ sở dữ liệu & Cảnh báo thiên tai:** Vận hành mạng lưới quan trắc tự động, viễn thám dự báo sớm lũ, hạn hán và xâm nhập mặn.
-4. **Ngoại giao nguồn nước & Đa phương hóa:** Cầu nối thúc đẩy đối thoại với 2 nước thượng nguồn (Trung Quốc, Myanmar) và các đối tác phát triển toàn cầu.
+🏛️ **I. UỶ HỘI SÔNG MÊ CÔNG (MRC) - MỤC TIÊU & HOẠT ĐỘNG TIÊU BIỂU:**
+1. **Lí do ra đời & Quá trình hình thành:** 
+   - Nhu cầu cân bằng giữa phát triển kinh tế và duy trì tính bền vững sinh thái trước nguy cơ suy giảm nguồn nước, đô thị hoá nhanh và xây đập thuỷ điện dòng chính.
+   - Thành lập Uỷ ban Mê Công (1957) ➔ Uỷ ban Lâm thời (1978) ➔ Kí Hiệp định Hợp tác phát triển bền vững lưu vực sông Mê Công lập ra **Uỷ hội sông Mê Công (MRC)** vào năm 1995 (Việt Nam, Lào, Cam-pu-chia, Thái Lan; Mi-an-ma và Trung Quốc là đối tác đối thoại).
+2. **Mục tiêu của Uỷ hội (trang 9 SGK):** 
+   - Thúc đẩy, phối hợp quản lí và phát triển tài nguyên nước cũng như các tài nguyên có liên quan một cách bền vững vì lợi ích chung của các quốc gia sông Mê Công và an sinh của cộng đồng.
+3. **Các hoạt động tiêu biểu của Uỷ hội (trang 9-14 SGK):**
+   - **Diễn đàn ngoại giao nước và hợp tác vùng:** Chia sẻ lợi ích chung và giải quyết vấn đề xuyên biên giới.
+   - **Hỗ trợ kĩ thuật & công cụ thực hành:** Giúp các nước ra quyết định về kế hoạch phát triển; hỗ trợ quy hoạch lưu vực dựa trên quản lí tổng hợp tài nguyên nước.
+   - **Năm thủ tục quản lí nước (Hình 6 trang 10 SGK):**
+     + *PDIES (2001):* Trao đổi và chia sẻ thông tin số liệu.
+     + *PWUM (2003):* Giám sát sử dụng nước.
+     + *PNPCA (2003):* Thông báo, tham vấn trước và thoả thuận.
+     + *PMFM (2006):* Duy trì dòng chảy trên dòng chính.
+     + *PWQ (2011):* Chất lượng nước.
+   - **Bảy thành tựu giai đoạn 2016 - 2020:** Nâng cao hiểu biết chung; tối ưu hoá quản lí môi trường; hướng dẫn dự án sử dụng nước; thực hiện chặt chẽ các thủ tục; đối thoại hợp tác hiệu quả; tăng cường giám sát dự báo; đổi mới MRC hiệu quả hơn.
+   - **Các dự án xuyên biên giới & sáng kiến:** 5 dự án song phương; Sáng kiến CCAI (thích ứng BĐKH), ISH (thuỷ điện bền vững); 5 chương trình AIP, DMP, EP, FP, NAP; các cơ chế Mê Công - Lan Thương (2016), Mê Công - Hoa Kỳ (2009), Mê Công - Nhật Bản (2007), Mê Công - Hàn Quốc (2011), Mê Công - sông Hằng (2000).
 
-🇻🇳 **II. SỰ THAM GIA & 6 ĐÓNG GÓP TRÁCH NHIỆM CỦA VIỆT NAM:**
-1. **Vị thế hạ nguồn trọng yếu:** Chịu tổn thương nặng nề nhất khi 95% nước phụ thuộc thượng lưu; bảo vệ vựa lúa 90% gạo xuất khẩu quốc gia.
-2. **Thành viên sáng lập:** Đặt nền móng với Ủy ban Sông Mê Kông Việt Nam (1978) và ký Hiệp định Chiang Rai 1995.
-3. **Trách nhiệm lãnh đạo:** Đăng cai Hội nghị Cấp cao MRC lần 2 (2014, TP.HCM); đảm nhiệm Chủ tịch Hội đồng MRC các nhiệm kỳ 2018, 2022.
-4. **Tiên phong nghiên cứu:** Chủ trì đề tài khoa học độc lập MDS (Mekong Delta Study) đánh giá toàn diện tác động thủy điện dòng chính.
-5. **Ngoại giao chủ động:** Đàm phán đề nghị Trung Quốc chia sẻ dữ liệu thủy văn Lan Thương quanh năm và xả lũ khẩn cấp cứu hạn mặn ĐBSCL (2016, 2020).
-6. **Mô hình Thuận thiên:** Tiên phong thực thi Nghị quyết 120/NQ-CP tái cơ cấu nông nghiệp thích ứng biến đổi khí hậu.`
+🇻🇳 **II. BỐN VAI TRÒ CỦA VIỆT NAM TRONG UỶ HỘI SÔNG MÊ CÔNG (Mục 4 trang 14-16 SGK):**
+1. **Vai trò đối với việc quản lí, giám sát tài nguyên xuyên biên giới:**
+   - Uỷ ban sông Mê Công Việt Nam (thành lập 18/9/1978 với 2 Tiểu ban: Cửu Long và Sê San - Srêpôk) quản lí hoạt động hợp tác với MRC trên toàn lưu vực, vùng ĐBSCL và Tây Nguyên.
+   - Hoàn thành 2 trong 5 sáng kiến song phương với Cam-pu-chia: Dự án Quản lí tổng hợp tài nguyên nước lưu vực sông Sê San - Srêpôk và Dự án Quản lí tổng hợp tài nguyên nước đồng bằng sông Mê Công.
+2. **Vai trò đối với việc lồng ghép hoạt động của Uỷ hội và các hợp tác đa phương, song phương:**
+   - Tích cực thúc đẩy hợp tác giữa các quốc gia thành viên, với các đối tác đối thoại, sáng kiến vùng và 14 đối tác phát triển của Uỷ hội.
+   - Tích cực thúc đẩy mở rộng hợp tác liên lưu vực sông (sông Hằng, sông Đa-nuýp, sông Nin, sông A-ma-dôn, sông Mi-xi-xi-pi).
+3. **Vai trò trong việc xây dựng các chiến lược của Uỷ hội:**
+   - Đóng vai trò tích cực trong quá trình tái cấu trúc và nội vùng hoá nhằm phát triển bền vững sông Mê Công.
+4. **Vai trò trong đàm phán, kí kết bộ Quy chế sử dụng nước, thúc đẩy các chương trình, dự án của Uỷ hội:**
+   - Tham gia Công ước LHQ về Luật sử dụng các nguồn nước xuyên biên giới 1997.
+   - Ban hành Nghị quyết 120/NQ-CP (2017) về phát triển bền vững ĐBSCL thích ứng BĐKH theo hướng "thuận tự nhiên"; Luật Bảo vệ Môi trường và Luật Tài nguyên nước (2020) theo mô hình kinh tế xanh, kinh tế tuần hoàn.
+   - **Sự kiện tiêu biểu:** Đăng cai Hội nghị Cấp cao lần thứ 2 của MRC (2014, TP.HCM với chủ đề "An ninh nguồn nước, năng lượng, lương thực trong bối cảnh biến đổi khí hậu"); đảm nhiệm vai trò Chủ tịch Hội đồng MRC các năm 2018 và 2022.`
       },
       en: {
-        primary: `🐜✨ **MRC and Vietnam are like good river guardians!**
+        primary: `🐜✨ **MRC and Vietnam (Primary School Core):**
 
-- 🤝 **What is the MRC:** A friendly team of 4 neighbor countries (Vietnam, Laos, Cambodia, Thailand) working together to share clean river water fairly!
-- 🇻🇳 **Vietnam's role:** As the country at the river mouth, Vietnam always encourages everyone to protect fishes, keep water clean, and warn families before big storms or droughts!`,
-        secondary: `🐜✨ **4 Roles of the MRC & Vietnam's Participation (Secondary School):**
+- 🤝 **What is the MRC:** Established in 1995 by 4 neighbor countries (Vietnam, Laos, Cambodia, Thailand) to manage and protect Mekong River water for mutual benefit and people's well-being.
+- 🌊 **MRC Activities:** Sharing hydrological data, forecasting floods and droughts, ensuring fair water use without harming downstream neighbors.
+- 🇻🇳 **Vietnam's Participation:** As the downstream delta nation, Vietnam actively protects clean water, fish habitats, and warns communities about storms and drought!`,
+        secondary: `🐜✨ **MRC Objectives, Activities & Vietnam's Roles (Secondary School - Grade 11 Curriculum):**
 
-- **4 Core Roles of MRC:**
-  1. Managing and sharing water resources equitably and sustainably.
-  2. Reviewing dam projects via Prior Consultation (PNPCA).
-  3. Operating hydro-meteorological stations and early disaster warning systems.
-  4. Engaging in dialogue with China, Myanmar, and global development partners.
-- **Vietnam's Active Engagement:** Founding member of the 1995 Agreement; protects the livelihoods of 20 million people in the Mekong Delta.`,
-        highschool: `🐜✨ **Grade 11 Geography Standard - MRC Core Roles & Vietnam's Contributions:**
+- 🎯 **MRC Objective (p.9):** Promote and coordinate sustainable management and development of water and related resources for the mutual benefit of all Mekong countries and community well-being.
+- 🌊 **Core MRC Activities:** Water diplomacy forum; Technical assistance; Enforcement of 5 water procedures (PDIES, PWUM, PNPCA, PMFM, PWQ); Transboundary bilateral projects and adaptation initiatives.
+- 🇻🇳 **Vietnam's Active Engagement:** Established Vietnam National Mekong Committee (Sept 18, 1978); completed 2 bilateral projects with Cambodia; hosted 2nd MRC Summit (2014); served as MRC Council Chair in 2018 and 2022.`,
+        highschool: `🐜✨ **Grade 11 Geography Curriculum Standard (Section I, pp. 8-16 MOET Textbook):**
 
-🌊 **I. FOUR CORE ROLES OF THE MEKONG RIVER COMMISSION (MRC):**
-1. **Integrated Basin Water Governance:** Fosters equitable, reasonable water utilization balancing socio-economic growth and basin ecological resilience.
-2. **Implementation of 5 Water Procedures:** PDIES (data exchange), PWUM (monitoring), PNPCA (prior consultation minimum 6 months), PMFM (ecological maintenance flows), and PWQ (water quality).
-3. **Knowledge Hub & Early Warning:** Maintains real-time telemetry network, remote sensing, and cross-border flood/drought/salinity forecasting.
-4. **Water Diplomacy & Partnership:** Serves as the premier diplomatic platform dialoguing with upstream partners (China, Myanmar) and global donors.
+🏛️ **I. MEKONG RIVER COMMISSION (MRC) - OBJECTIVE & CORE ACTIVITIES:**
+1. **Rationale & Evolution:** Mekong River Committee (1957) ➔ Interim Committee (1978) ➔ 1995 Mekong Agreement establishing the Mekong River Commission (MRC) among Cambodia, Laos, Thailand, and Vietnam; China & Myanmar participate as dialogue partners.
+2. **Objective (p.9):** To promote and coordinate sustainable management and development of water and related resources for mutual benefit and community well-being.
+3. **Core Activities (pp.9-14):**
+   - Water diplomacy platform & regional cooperation.
+   - Technical support, practice tools & integrated water resources management (IWRM) planning.
+   - **Five Water Procedures (Figure 6, p.10):** PDIES (2001, data exchange), PWUM (2003, water use monitoring), PNPCA (2003, prior consultation), PMFM (2006, mainstream flow maintenance), PWQ (2011, water quality).
+   - Seven Achievements (2016-2020) & 5 bilateral transboundary projects.
+   - Cooperation initiatives (CCAI, ISH), programs (AIP, DMP, EP, FP, NAP), and partner mechanisms (Lancang-Mekong, US, Japan, Korea, Ganga).
 
-🇻🇳 **II. VIETNAM'S SIX RESPONSIBLE CONTRIBUTIONS:**
-1. **Downstream Vulnerability Advocacy:** Protecting the delta where 95% of inflows are transboundary and safeguarding 90% of national rice exports.
-2. **Founding Leadership:** Established National Mekong Committee (1978) and co-signed the 1995 Chiang Rai Agreement.
-3. **Rotating Leadership:** Hosted 2nd MRC Summit (2014, HCMC); held MRC Council Chairmanship in 2018 & 2022.
-4. **Scientific Leadership:** Headed the comprehensive Mekong Delta Study (MDS) assessing mainstream dam impacts.
-5. **Upstream Diplomacy:** Negotiated year-round Lancang hydrological data sharing and emergency dry-season water releases with China.
-6. **Nature-based Policy:** Spearheaded Government Resolution 120/NQ-CP for sustainable climate adaptation.`
+🇻🇳 **II. VIETNAM'S FOUR ROLES IN THE MRC (Section 4, pp.14-16 MOET Textbook):**
+1. **Role in managing and monitoring transboundary resources:** Vietnam National Mekong Committee (established Sept 18, 1978 with Cuu Long and Se San - Srepok sub-committees) oversees basin cooperation; completed 2 of 5 bilateral initiatives with Cambodia (Se San - Srepok basin & Mekong Delta).
+2. **Role in mainstreaming MRC activities with multilateral and bilateral cooperation:** Fosters collaboration among members, with 14 development partners, and inter-basin dialogues (Ganges, Danube, Nile, Amazon, Mississippi).
+3. **Role in formulating MRC strategies:** Actively engages in restructuring and basin-wide ownership for sustainable development.
+4. **Role in negotiating water use rules and advancing MRC programs & projects:**
+   - Acceded to 1997 UN Watercourses Convention.
+   - Issued Government Resolution 120/NQ-CP (2017) on sustainable climate-resilient development of Mekong Delta (nature-based approach); 2020 Environmental Protection and Water Resources Laws (green & circular economy).
+   - **Key Milestones:** Hosted the 2nd MRC Summit (2014, HCMC on "Water, Food and Energy Security in the Context of Climate Change"); served as MRC Council Chair in 2018 and 2022.`
       }
     }
   },

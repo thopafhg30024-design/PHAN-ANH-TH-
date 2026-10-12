@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { MekongMap } from './components/MekongMap';
 import { MekongGlobeMap } from './components/MekongGlobeMap';
-import { MekongTourismGallery } from './components/MekongTourismGallery';
 import { KnowledgeBase } from './components/KnowledgeBase';
 import { MekongKnowledge } from './components/MekongKnowledge';
 import { VietnamMekongDelta } from './components/VietnamMekongDelta';
@@ -85,11 +84,11 @@ export default function App() {
             selectedLevel={selectedLevel}
             language={language}
             onOpenChatbotWithTopic={handleOpenChatbotWithTopic}
+            onNavigateTab={(tab) => {
+              setActiveTab(tab as any);
+              soundFx.playClick();
+            }}
           />
-        )}
-
-        {activeTab === 'tourism' && (
-          <MekongTourismGallery />
         )}
 
         {activeTab === 'mrc' && (

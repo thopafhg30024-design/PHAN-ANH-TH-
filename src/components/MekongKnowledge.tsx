@@ -39,6 +39,7 @@ interface MekongKnowledgeProps {
   selectedLevel: EducationLevel;
   language?: Language;
   onOpenChatbotWithTopic?: (topic: string) => void;
+  onNavigateTab?: (tab: string) => void;
 }
 
 // Flashcards for quick study
@@ -73,10 +74,10 @@ const STUDY_FLASHCARDS = [
   },
   {
     id: 'fc-mrc-vietnam',
-    term: 'Vai trò của MRC & Sự tham gia của Việt Nam',
-    brief: 'MRC giữ 4 vai trò cốt lõi (điều phối bền vững, 5 thủ tục nước, quan trắc cảnh báo sớm, đối thoại ngoại giao). Việt Nam tham gia tích cực, trách nhiệm.',
-    detail: 'Việt Nam chịu 95% dòng chảy ngoại biên; tổ chức Hội nghị Cấp cao 2 (2014, TP.HCM), đi đầu nghiên cứu MDS, thúc đẩy chia sẻ số liệu Lan Thương và thực thi Nghị quyết 120 "Thuận thiên".',
-    tag: 'Trọng tâm Địa 11'
+    term: 'Uỷ hội sông Mê Công & Vai trò của Việt Nam',
+    brief: 'Nội dung trọng tâm đã được chuyển sang tab "Chuyên Đề Địa Lí 11 & MRC" với đầy đủ chuẩn SGK (Mục 2, 3, 4 trang 8 - 16).',
+    detail: 'Xem chi tiết tại phân hệ "Chuyên Đề Địa Lí 11 & MRC" gồm: 5 thủ tục quản lí nước (PDIES, PWUM, PNPCA, PMFM, PWQ); 7 thành tựu; 4 vai trò của Việt Nam và phần giải đáp câu hỏi SGK.',
+    tag: 'Chuyên đề 11'
   },
   {
     id: 'fc-3',
@@ -153,15 +154,8 @@ const KNOWLEDGE_CHAPTERS = [
     badge: 'Sinh thái'
   },
   {
-    id: 'mrc-agreement',
-    title: '6. Vai Trò Của Ủy Hội MRC & Sự Tham Gia Của Việt Nam',
-    subtitle: '4 vai trò điều phối của MRC, 5 thủ tục quản lí nước & 6 đóng góp trách nhiệm của Việt Nam',
-    icon: BookOpen,
-    badge: 'Trọng Tâm Địa 11'
-  },
-  {
     id: 'security-solutions',
-    title: '7. Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước',
+    title: '6. Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước',
     subtitle: 'Phân tích các mục đích khai thác, những vấn đề nảy sinh và giải pháp bảo vệ theo chuẩn SGK Địa lí 11',
     icon: ShieldCheck,
     badge: 'Trọng Tâm SGK Địa 11'
@@ -171,7 +165,8 @@ const KNOWLEDGE_CHAPTERS = [
 export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({ 
   selectedLevel,
   language = 'vi',
-  onOpenChatbotWithTopic 
+  onOpenChatbotWithTopic,
+  onNavigateTab
 }) => {
   const isEn = language === 'en';
   const [activeChapterId, setActiveChapterId] = useState<string>('overview');
@@ -289,6 +284,29 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
                 </button>
               );
             })}
+          </div>
+
+          {/* Direct link to MRC tab */}
+          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-teal-50 via-emerald-50 to-blue-50 border border-teal-200 text-xs shadow-xs">
+            <div className="flex items-center gap-2 mb-1.5">
+              <BookOpen className="w-4 h-4 text-teal-700 shrink-0" />
+              <span className="font-bold text-teal-950 text-xs">Chuyên Đề Địa Lí 11 & MRC</span>
+            </div>
+            <p className="text-[11px] text-slate-600 mb-2.5 leading-relaxed">
+              Mục <strong>"Ủy Hội Sông Mê Kông & Vai Trò Của Việt Nam"</strong> đã được chuyển sang phân hệ chuyên đề riêng biệt theo chuẩn SGK.
+            </p>
+            {onNavigateTab && (
+              <button
+                onClick={() => {
+                  onNavigateTab('mrc');
+                  soundFx.playClick();
+                }}
+                className="w-full py-2 px-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs cursor-pointer transition-colors"
+              >
+                <span>Xem Chuyên Đề MRC & Việt Nam</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
 
           {/* Ask Mascot Action Card */}
@@ -1158,291 +1176,7 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
             </div>
           )}
 
-          {/* Chapter 6: Vai Trò Của Ủy Hội MRC & Sự Tham Gia Của Việt Nam */}
-          {activeChapterId === 'mrc-agreement' && (
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-8 text-slate-700">
-              <div className="border-b border-slate-100 pb-5">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wide">
-                    Chương 6 • Trọng Tâm SGK Địa Lí 11
-                  </span>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800">
-                    Hiệp Định 1995 & Quy Trình PNPCA
-                  </span>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">
-                    Trách Nhiệm Của Việt Nam
-                  </span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
-                  Vai Trò Của Ủy Hội Sông Mê Công (MRC) & Sự Tham Gia Của Việt Nam
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                  Hiệp định Hợp tác Phát triển Bền vững Lưu vực sông Mê Kông (ký ngày <strong>05/04/1995 tại Chiang Rai, Thái Lan</strong>) là văn bản pháp lý quốc tế nền tảng. Tìm hiểu 4 vai trò điều phối tối cao của MRC và những đóng góp chủ động, trách nhiệm mang tính sống còn của Việt Nam.
-                </p>
-              </div>
-
-              {/* High-level Highlights Banner */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3.5 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
-                  <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">Trụ Cột MRC</span>
-                  <span className="text-lg sm:text-xl font-black text-emerald-950 block mt-0.5">4 Vai Trò</span>
-                  <span className="text-[10px] text-slate-600">Điều phối, 5 thủ tục, dữ liệu & ngoại giao</span>
-                </div>
-                <div className="p-3.5 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-200">
-                  <span className="text-[11px] font-bold text-blue-800 uppercase tracking-wider block">Hạ Nguồn ĐBSCL</span>
-                  <span className="text-lg sm:text-xl font-black text-blue-950 block mt-0.5">95% Nước</span>
-                  <span className="text-[10px] text-slate-600">Bắt nguồn từ ngoài biên giới Việt Nam</span>
-                </div>
-                <div className="p-3.5 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200">
-                  <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block">UB Mê Kông VN</span>
-                  <span className="text-lg sm:text-xl font-black text-amber-950 block mt-0.5">18/09/1978</span>
-                  <span className="text-[10px] text-slate-600">Tiểu ban Cửu Long & Sê San - Srêpôk</span>
-                </div>
-                <div className="p-3.5 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl border border-purple-200">
-                  <span className="text-[11px] font-bold text-purple-800 uppercase tracking-wider block">Hội Nghị Cấp Cao 2</span>
-                  <span className="text-lg sm:text-xl font-black text-purple-950 block mt-0.5">2014 TP.HCM</span>
-                  <span className="text-[10px] text-slate-600">Chủ tịch Hội đồng MRC 2018 & 2022</span>
-                </div>
-              </div>
-
-              {/* SECTION 1: 4 VAI TRÒ CỐT LÕI CỦA MRC */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-sm shadow-xs">
-                    I
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                      Bốn Vai Trò Cốt Lõi Của Ủy Hội Sông Mê Công (MRC)
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Cơ quan liên chính phủ quản lý tài nguyên nước và phát triển bền vững lưu vực hạ lưu sông Mê Kông
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 bg-slate-50/80 rounded-2xl border border-slate-200 hover:border-emerald-300 transition-all space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center">1</span>
-                      <h4 className="font-bold text-slate-900 text-sm">Điều Phối & Quản Lí Bền Vững Tài Nguyên Nước</h4>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Thúc đẩy việc <strong>khai thác, sử dụng và bảo vệ nguồn nước cũng như tài nguyên liên quan</strong> một cách công bằng, hợp lý và cùng có lợi. Bảo đảm hài hòa giữa các mục tiêu phát triển kinh tế lưu vực (thủy điện, nông nghiệp, giao thông thủy) với việc bảo tồn đa dạng sinh học và sinh kế của hơn 65 triệu cư dân hạ du.
-                    </p>
-                    <div className="text-[11px] text-teal-800 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-100 font-medium">
-                      🎯 Mục tiêu: Tránh cạn kiệt dòng chảy kiệt, hạn chế xung đột khai thác giữa các quốc gia ven sông.
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-slate-50/80 rounded-2xl border border-slate-200 hover:border-emerald-300 transition-all space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-lg bg-blue-100 text-blue-800 font-bold text-xs flex items-center justify-center">2</span>
-                      <h4 className="font-bold text-slate-900 text-sm">Xây Dựng & Thực Thi 5 Thủ Tục Quản Lí Cốt Lõi</h4>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Ban hành và giám sát việc tuân thủ 5 quy chế kỹ thuật bắt buộc: <strong>PDIES</strong> (chia sẻ dữ liệu, 2001), <strong>PWUM</strong> (giám sát sử dụng nước, 2003), <strong>PNPCA</strong> (thông báo, tham vấn trước và thỏa thuận, 2003), <strong>PMFM</strong> (duy trì dòng chảy tối thiểu, 2006) và <strong>PWQ</strong> (chất lượng nước, 2011).
-                    </p>
-                    <div className="text-[11px] text-blue-800 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-100 font-medium">
-                      ⚖️ Nền tảng pháp lý: Cơ chế giải quyết tranh chấp và kiểm soát dự án tác động xuyên biên giới.
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-slate-50/80 rounded-2xl border border-slate-200 hover:border-emerald-300 transition-all space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-lg bg-amber-100 text-amber-800 font-bold text-xs flex items-center justify-center">3</span>
-                      <h4 className="font-bold text-slate-900 text-sm">Trung Tâm Dữ Liệu Khoa Học & Cảnh Báo Sớm</h4>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Vận hành <strong>hệ thống trạm quan trắc tự động xuyên biên giới</strong> thu thập dữ liệu thủy văn, khí tượng, bùn cát phù sa và môi trường sinh thái. Cung cấp các bản tin dự báo lũ, cảnh báo hạn hán và xâm nhập mặn kịp thời cho các chính phủ thành viên để chủ động phòng chống thiên tai.
-                    </p>
-                    <div className="text-[11px] text-amber-800 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-100 font-medium">
-                      📡 Công nghệ: Hệ thống giám sát vệ tinh và quan trắc thời gian thực phục vụ hạ du ĐBSCL.
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-slate-50/80 rounded-2xl border border-slate-200 hover:border-emerald-300 transition-all space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-lg bg-purple-100 text-purple-800 font-bold text-xs flex items-center justify-center">4</span>
-                      <h4 className="font-bold text-slate-900 text-sm">Cầu Nối Đối Thoại Ngoại Giao & Hợp Tác Quốc Tế</h4>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Đóng vai trò là <strong>diễn đàn ngoại giao nguồn nước chính thức</strong> kết nối 4 nước thành viên với Trung Quốc, Myanmar (hai đối tác đối thoại thượng nguồn) và các đối tác phát triển toàn cầu (Mỹ - Sáng kiến MUSP, Nhật Bản, Hàn Quốc, Úc, EU, Ngân hàng Thế giới WB, ADB).
-                    </p>
-                    <div className="text-[11px] text-purple-800 bg-purple-50 px-2.5 py-1.5 rounded-lg border border-purple-100 font-medium">
-                      🌐 Đa phương hóa: Huy động tài chính, công nghệ và xây dựng lòng tin chính trị trong khu vực.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* PNPCA In-Depth Sub-Section */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-50/60 to-orange-50/40 border border-amber-200 space-y-3">
-                <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
-                  <ShieldCheck className="w-5 h-5 text-amber-600" />
-                  <span>Quy Trình PNPCA - Công Cụ Tham Vấn Xuyên Biên Giới Cốt Lõi:</span>
-                </div>
-                <p className="text-xs text-slate-700 leading-relaxed">
-                  Quy trình <strong>PNPCA (Procedures for Notification, Prior Consultation and Agreement)</strong> thông qua năm 2003 là thủ tục quan trọng nhất để các nước thành viên thảo luận về các công trình lớn trước khi khởi công:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
-                  <div className="p-3 bg-white rounded-xl border border-amber-200/80 shadow-xs">
-                    <span className="font-bold text-teal-800 block mb-1">1. Thông Báo (Notification):</span>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
-                      Áp dụng cho các dự án trên các phụ lưu hoặc dòng chính trong mùa lũ. Quốc gia chủ đầu tư gửi hồ sơ kỹ thuật chi tiết tới Ban Thư ký MRC.
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white rounded-xl border border-amber-300 shadow-xs ring-1 ring-amber-200">
-                    <span className="font-bold text-amber-900 block mb-1">2. Tham Vấn Trước (Prior Consultation):</span>
-                    <p className="text-slate-700 text-[11px] leading-relaxed">
-                      Bắt buộc đối với mọi dự án thủy điện trên dòng chính (như Xayaburi, Don Sahong, Luang Prabang, Sanakham). Kéo dài tối thiểu <strong>6 tháng</strong> để các nước hạ lưu đánh giá tác động và yêu cầu biện pháp giảm thiểu.
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white rounded-xl border border-amber-200/80 shadow-xs">
-                    <span className="font-bold text-emerald-800 block mb-1">3. Thỏa Thuận (Agreement):</span>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
-                      Bắt buộc khi có kế hoạch chuyển nước ra ngoài lưu vực trong mùa khô, đảm bảo không làm sụt giảm lưu lượng dòng chảy kiệt tối thiểu.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 2: SỰ THAM GIA VÀ ĐÓNG GÓP CỦA VIỆT NAM */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-sm shadow-xs">
-                    II
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                      Sự Tham Gia & Đóng Góp Chủ Động, Trách Nhiệm Của Việt Nam
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Việt Nam luôn giữ vai trò nòng cốt, tiên phong thượng tôn luật pháp quốc tế để bảo vệ an ninh nguồn nước ĐBSCL
-                    </p>
-                  </div>
-                </div>
-
-                {/* 6 Key Contributions of Vietnam */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">1. Vị Thế Hạ Nguồn Sinh Tử</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Bảo Vệ Sinh Kế 20 Triệu Dân ĐBSCL</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      95% dòng chảy đổ vào ĐBSCL bắt nguồn từ ngoài biên giới. ĐBSCL là vựa lúa chiếm 90% gạo và 53% thủy sản xuất khẩu của cả nước. Tham gia MRC là nhiệm vụ chiến lược quốc gia bảo đảm an ninh lương thực và ứng phó sạt lở, xâm nhập mặn.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">2. Cơ Quan Chuyên Trách Quốc Gia</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Ủy Ban Sông Mê Kông Việt Nam</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Thành lập ngày <strong>18/09/1978</strong>. Hoạt động với 2 Tiểu ban: <em>Tiểu ban lưu vực sông Cửu Long</em> và <em>Tiểu ban lưu vực sông Sê San - Srêpôk</em>; đại diện cho tiếng nói khoa học, pháp lý của Việt Nam trong toàn bộ cơ chế của MRC.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">3. Trọng Trách Lãnh Đạo</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Đăng Cai Cấp Cao 2 & Chủ Tịch Hội Đồng</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Năm 2014, Việt Nam tổ chức thành công <strong>Hội nghị Cấp cao MRC lần 2 tại TP.HCM</strong>, thông qua Tuyên bố lịch sử về an ninh Nước - Năng lượng - Lương thực. Đảm nhiệm thành công vai trò <strong>Chủ tịch Hội đồng MRC</strong> các năm 2018 và 2022.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">4. Tiên Phong Nghiên Cứu</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Đề Tài Độc Lập MDS (Mekong Delta Study)</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Việt Nam chủ trì công trình nghiên cứu khoa học độc lập quốc tế đánh giá toàn diện tác động của các bậc thang thủy điện dòng chính Mê Kông đến ĐBSCL, cung cấp bằng chứng thuyết phục về nguy cơ thiếu hụt phù sa và suy giảm nguồn lợi thủy sản.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">5. Ngoại Giao Thượng Nguồn</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Vận Động Chia Sẻ Dữ Liệu & Cứu Hạn</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Kiên trì vận động Trung Quốc chia sẻ dữ liệu thủy văn Lan Thương quanh năm thay vì chỉ mùa lũ. Trong các đợt hạn mặn lịch sử 2016 và 2020, Việt Nam chủ động ngoại giao đề nghị các hồ chứa thượng nguồn xả nước cứu hạn mặn cấp bách cho hạ du.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-200 space-y-1.5">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase tracking-wider block">6. Chiến Lược Thuận Thiên</span>
-                    <h4 className="font-bold text-slate-900 text-sm">Nghị Quyết 120/NQ-CP & Công Ước 1997</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Tham gia Công ước Liên Hợp Quốc về Luật Sử dụng các Nguồn nước Xuyên biên giới 1997. Ban hành Nghị quyết 120/NQ-CP tái cấu trúc kinh tế ĐBSCL: coi nước mặn - lợ là tài nguyên, phát triển mô hình lúa - tôm, chuyển đổi cơ cấu thích ứng tự nhiên.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 3: BẢNG SO SÁNH ĐỐI CHIẾU VAI TRÒ MRC & ĐÓNG GÓP CỦA VIỆT NAM */}
-              <div className="space-y-3">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-teal-600" />
-                  <span>Bảng Tổng Hợp Đối Chiếu: Vai Trò MRC $\leftrightarrow$ Đóng Góp Của Việt Nam:</span>
-                </h3>
-                <div className="overflow-x-auto rounded-2xl border border-slate-200">
-                  <table className="w-full text-left text-xs border-collapse">
-                    <thead>
-                      <tr className="bg-slate-100/80 text-slate-800 border-b border-slate-200">
-                        <th className="p-3 font-bold w-1/3">Trụ Cột Vai Trò Của MRC</th>
-                        <th className="p-3 font-bold w-2/3">Hành Động & Đóng Góp Trách Nhiệm Của Việt Nam</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      <tr className="hover:bg-slate-50/50">
-                        <td className="p-3 font-semibold text-teal-900 align-top">
-                          1. Quản lý bền vững & hài hòa lợi ích kinh tế - sinh thái
-                        </td>
-                        <td className="p-3 text-slate-600 leading-relaxed align-top">
-                          Đề xuất các sáng kiến sử dụng nước tiết kiệm; xây dựng mô hình kinh tế "Thuận thiên" theo Nghị quyết 120; hoàn thành 2 sáng kiến song phương với Campuchia về lưu vực Sê San - Srêpôk và ĐBSCL.
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-slate-50/50 bg-slate-50/30">
-                        <td className="p-3 font-semibold text-blue-900 align-top">
-                          2. Thực thi 5 quy chế kỹ thuật (PNPCA, PWQ, PMFM...)
-                        </td>
-                        <td className="p-3 text-slate-600 leading-relaxed align-top">
-                          Gương mẫu gửi thông báo kỹ thuật cho các dự án nội địa; kiên trì yêu cầu thực hiện nghiêm ngặt quy trình tham vấn trước 6 tháng cho các đập dòng chính (Xayaburi, Luang Prabang) kèm giải pháp giảm thiểu phù sa và đường đi cho cá.
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-slate-50/50">
-                        <td className="p-3 font-semibold text-amber-900 align-top">
-                          3. Dữ liệu khoa học & cảnh báo thiên tai
-                        </td>
-                        <td className="p-3 text-slate-600 leading-relaxed align-top">
-                          Chủ trì nghiên cứu độc lập MDS (Mekong Delta Study); duy trì mạng lưới trạm quan trắc Tân Châu, Châu Đốc và cửa sông; tích cực chia sẻ số liệu mặn, triều cường với cơ sở dữ liệu MRC.
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-slate-50/50 bg-slate-50/30">
-                        <td className="p-3 font-semibold text-purple-900 align-top">
-                          4. Ngoại giao nguồn nước & hợp tác đa phương
-                        </td>
-                        <td className="p-3 text-slate-600 leading-relaxed align-top">
-                          Tổ chức thành công Hội nghị Cấp cao lần 2 (2014); giữ ghế Chủ tịch Hội đồng MRC (2018, 2022); thúc đẩy đàm phán với Trung Quốc về xả nước hồ chứa thượng nguồn; gắn kết hợp tác MRC với cơ chế Mê Công - Lan Thương (MLC) và ASEAN.
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* SGK Takeaway Card */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-300 text-xs space-y-2">
-                <span className="font-bold text-emerald-950 block text-sm flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-emerald-700" />
-                  Ghi Nhớ Yêu Cầu Cần Đạt Chuyên Đề Địa Lí 11 (Bộ GD&ĐT):
-                </span>
-                <ul className="text-slate-700 space-y-1 text-[11px] list-disc list-inside">
-                  <li><strong>Nắm vững 4 vai trò của MRC:</strong> (1) Điều phối & quản lý bền vững, (2) Thực thi 5 thủ tục quản lý nước, (3) Trung tâm dữ liệu & cảnh báo thiên tai, (4) Diễn đàn ngoại giao đa phương.</li>
-                  <li><strong>Chứng minh sự tham gia chủ động của Việt Nam:</strong> Thành lập Ủy ban Mê Kông VN (18/9/1978), tổ chức Hội nghị Cấp cao 2 (2014, TP.HCM), nghiên cứu MDS, hợp tác dữ liệu với Trung Quốc và thích ứng "Thuận thiên" theo Nghị quyết 120/NQ-CP.</li>
-                  <li><strong>Ý nghĩa cốt lõi:</strong> Tham gia MRC là cơ sở pháp lý cao nhất để bảo vệ quyền lợi hợp pháp của hơn 17-20 triệu dân ĐBSCL trước các tác động bất lợi từ thượng nguồn.</li>
-                </ul>
-              </div>
-            </div>
-          )}
-
-          {/* Chapter 7: Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước (Mục 4 SGK Địa lí 11) */}
+          {/* Chapter 6: Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước (Mục 4 SGK Địa lí 11) */}
           {activeChapterId === 'security-solutions' && (
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-8 text-slate-700">
               {/* Header with Curriculum Standard */}

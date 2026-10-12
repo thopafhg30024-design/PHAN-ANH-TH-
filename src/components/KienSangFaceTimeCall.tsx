@@ -163,8 +163,8 @@ export const KienSangFaceTimeCall: React.FC<KienSangFaceTimeCallProps> = ({
       en: 'Tell me about the 9 Nine Dragon river mouths'
     },
     {
-      vi: '4 vai trò của Ủy hội sông Mê Công (MRC) là gì?',
-      en: 'What are the 4 core roles of the MRC?'
+      vi: 'Mục tiêu, hoạt động của MRC & 4 vai trò của Việt Nam?',
+      en: 'MRC objectives, activities & Vietnam\'s 4 roles?'
     },
     {
       vi: 'Trường FPT Hậu Giang có điểm gì đặc biệt?',
