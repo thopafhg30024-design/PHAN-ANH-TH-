@@ -108,7 +108,7 @@ export const MEKONG_RIVER_COORDINATES: Array<GlobeGeoPoint & { country: string; 
   { lat: 10.70, lon: 105.12, country: 'Việt Nam', elevationM: 3.8, sectionName: 'Trạm Thủy văn Châu Đốc (Sông Hậu)' },
   { lat: 10.45, lon: 105.62, country: 'Việt Nam', elevationM: 2.8, sectionName: 'Cao Lãnh (Đồng Tháp) - Cầu Cao Lãnh' },
   { lat: 10.35, lon: 106.35, country: 'Việt Nam', elevationM: 2.0, sectionName: 'Mỹ Tho (Tiền Giang) - Cầu Rạch Miễu / Cầu Mỹ Thuận' },
-  { lat: 10.04, lon: 105.78, country: 'Việt Nam', elevationM: 1.8, sectionName: 'Thành phố Cần Thơ & Hậu Giang (Trường FPT Hậu Giang, Vị Thủy)' },
+  { lat: 10.04, lon: 105.78, country: 'Việt Nam', elevationM: 1.8, sectionName: 'Thành phố Cần Thơ & Hậu Giang (Kênh xáng Xà No)' },
   { lat: 9.85, lon: 106.45, country: 'Việt Nam', elevationM: 1.2, sectionName: 'Trà Vinh & Bến Tre - Phân lưu 9 cửa sông Cửu Long' },
   { lat: 10.27, lon: 106.75, country: 'Việt Nam', elevationM: 0, sectionName: 'Cửa Tiểu & Cửa Đại (Gò Công - Biển Đông)' },
   { lat: 10.05, lon: 106.78, country: 'Việt Nam', elevationM: 0, sectionName: 'Cửa Hàm Luông & Cổ Chiên (Bến Tre - Biển Đông)' },
@@ -240,7 +240,7 @@ export const SIX_COUNTRIES_JOURNEY: CountryJourneyInfo[] = [
     mainDamsOrFeatures: [
       'Trạm Tân Châu & Châu Đốc',
       'Đồng Tháp Mười & Tứ Giác Long Xuyên',
-      'Kênh xáng Xà No & Trường FPT Hậu Giang (Vị Thủy)',
+      'Kênh xáng Xà No (Hậu Giang)',
       'Hệ thống cống Cái Lớn - Cái Bé',
       '9 Cửa sông Cửu Long'
     ],
@@ -841,14 +841,14 @@ export const HYDROLOGICAL_STATIONS: HydrologicalStation[] = [
   },
   {
     id: 'sta-can-tho',
-    name: 'Trạm Cần Thơ & Hậu Giang (FPT HG)',
+    name: 'Trạm Cần Thơ & Hậu Giang',
     country: 'Việt Nam',
     flag: '🇻🇳',
     lat: 10.04,
     lon: 105.78,
     riverKm: 4710,
     elevationM: 1.8,
-    role: 'Trung tâm châu thổ & Vị trí Trường FPT',
+    role: 'Trung tâm kinh tế - thủy văn ĐBSCL',
     waterLevel: {
       normal: 1.65,
       flood: 2.25,
@@ -892,8 +892,8 @@ export const HYDROLOGICAL_STATIONS: HydrologicalStation[] = [
       historicalMax: 6200
     },
     mrcStationCode: 'VNM-VT-11',
-    highlightsVi: 'Quan trắc độ mặn nội đồng tỉnh Hậu Giang bên dòng Kênh xáng Xà No lịch sử (cách Trường FPT Hậu Giang 15 km).',
-    highlightsEn: 'Monitors inland salinity & tides along historic Xa No Canal in Hau Giang near FPT School campus.'
+    highlightsVi: 'Quan trắc độ mặn nội đồng tỉnh Hậu Giang bên dòng Kênh xáng Xà No lịch sử.',
+    highlightsEn: 'Monitors inland salinity & tides along historic Xa No Canal in Hau Giang.'
   },
   {
     id: 'sta-dai-ngai',

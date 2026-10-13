@@ -199,18 +199,18 @@ export const HIGHSCHOOL_QUIZ: QuizQuestion[] = [
   {
     id: 'hs-7',
     level: 'highschool',
-    question: 'Trong khuôn khổ hợp tác hòa bình tại Biển Đông (Phần II SGK trang 18), Hiệp định hợp tác nghề cá ở vịnh Bắc Bộ giữa Việt Nam và Trung Quốc được kí kết vào thời gian nào?',
+    question: 'Theo SGK Chuyên đề Địa lí 11, việc xây dựng các công trình thủy điện trên dòng chính sông Mê Công ở thượng lưu gây ra những hệ lụy tiêu cực lớn nào cho vùng hạ lưu và ĐBSCL?',
     options: [
-      'Ngày 5 - 4 - 1995 tại Bangkok',
-      'Ngày 25 - 12 - 2000 tại Bắc Kinh',
-      'Ngày 9 - 8 - 1997 tại Hà Nội',
-      'Năm 1982 tại Phnôm Pênh'
+      'Làm tăng lượng phù sa bồi đắp và ngăn chặn hoàn toàn hiện tượng xâm nhập mặn ở các cửa sông',
+      'Làm suy giảm nghiêm trọng lượng phù sa cát sỏi bồi đắp (giảm hơn 50%), biến đổi dòng chảy tự nhiên, gia tăng sạt lở bờ sông và xâm nhập mặn sâu',
+      'Tạo điều kiện thuận lợi tuyệt đối cho các loài cá quý di cư ngược dòng sinh sản tự nhiên',
+      'Làm tăng diện tích ngập lũ tự nhiên giúp mở rộng hệ sinh thái rừng tràm và đất ngập nước'
     ],
     correctIndex: 1,
-    explanation: 'Chính xác! Hiệp định hợp tác nghề cá ở vịnh Bắc Bộ giữa Việt Nam và Trung Quốc được kí ngày 25 - 12 - 2000 tại Bắc Kinh, thiết lập Vùng đánh cá chung từ đường đóng cửa vịnh đến vĩ tuyến 20°B.',
-    hint: 'Kí kết vào ngày lễ Giáng sinh 25/12/2000.',
-    badgeEarned: 'Chuyên gia Ngoại giao Biển Đông',
-    gradeLevelTag: 'Chuyên đề Địa lí 11 - Phần II Tr.18'
+    explanation: 'Chính xác! Theo SGK Chuyên đề Địa lí 11 (trang 11 - 13), các hồ chứa thủy điện dòng chính giữ lại phần lớn bùn cát phù sa (suy giảm đến 50 - 70%), làm thay đổi chế độ dòng chảy mùa khô, cản trở đường di cư của các loài thủy sản, đồng thời làm gia tăng xói lở bờ sông bờ biển và khiến xâm nhập mặn lấn sâu vào Đồng bằng sông Cửu Long.',
+    hint: 'Lưu ý tác động giữ lại phù sa bùn cát và làm gia tăng sạt lở, mặn xâm nhập vào mùa khô.',
+    badgeEarned: 'Hiệp sĩ An ninh Nguồn nước Mê Kông',
+    gradeLevelTag: 'Chuyên đề Địa lí 11 - An ninh nguồn nước Tr.11-13'
   },
   {
     id: 'hs-8',

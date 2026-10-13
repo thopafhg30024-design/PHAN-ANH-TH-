@@ -20,6 +20,9 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
+  // Game slide mode: when true, picking an option immediately submits and reveals right/wrong
+  const [autoSubmitOnClick, setAutoSubmitOnClick] = useState<boolean>(true);
+  const [answersHistory, setAnswersHistory] = useState<Record<number, { selected: number; isCorrect: boolean }>>({});
   
   // Timer & Streak system
   const [timerEnabled, setTimerEnabled] = useState<boolean>(true);
@@ -114,16 +117,33 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
 
   const handleSelectOption = (idx: number) => {
     if (isAnswerSubmitted) return;
-    setSelectedOption(idx);
-    soundFx.playClick();
+
+    if (autoSubmitOnClick) {
+      // Immediate reveal mode: clicking an answer directly locks it in and reveals right or wrong!
+      setSelectedOption(idx);
+      handleSubmitAnswer(false, idx);
+    } else {
+      // 2-step mode: neutral highlight, user clicks "Kiểm Tra" to know right/wrong
+      setSelectedOption(idx);
+      soundFx.playClick();
+    }
   };
 
-  const handleSubmitAnswer = (isTimeout: boolean = false) => {
+  const handleSubmitAnswer = (isTimeout: boolean = false, chosenIdx?: number) => {
     if (isAnswerSubmitted) return;
     setIsAnswerSubmitted(true);
 
-    const isCorrect = !isTimeout && selectedOption === currentQ.correctIndex;
+    const targetOption = chosenIdx !== undefined ? chosenIdx : selectedOption;
+    const isCorrect = !isTimeout && targetOption === currentQ.correctIndex;
     
+    setAnswersHistory(prev => ({
+      ...prev,
+      [currentQuestionIdx]: {
+        selected: targetOption !== null && targetOption !== undefined ? targetOption : -1,
+        isCorrect
+      }
+    }));
+
     if (isCorrect) {
       soundFx.playSuccess();
       const basePoints = activeGameLevel === 'primary' ? 20 : activeGameLevel === 'secondary' ? 30 : 40;
@@ -141,7 +161,7 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
         setEarnedBadges(prev => [...prev, currentQ.badgeEarned!]);
       }
     } else {
-      soundFx.playClick();
+      soundFx.playWrong();
       setStreakCount(0); // Reset streak
     }
   };
@@ -165,6 +185,7 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
     setSelectedOption(null);
     setIsAnswerSubmitted(false);
     setShowHint(false);
+    setAnswersHistory({});
     setCompletedLevels(prev => ({ ...prev, [activeGameLevel]: false }));
     setTimeLeft(currentDiffSettings.timeLimit);
     setStreakCount(0);
@@ -333,22 +354,54 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
         <div className="lg:col-span-8 bg-white rounded-2xl p-5 sm:p-6 border border-emerald-100 shadow-sm text-slate-800">
           {!isCurrentLevelFinished && currentQ ? (
             <div>
-              {/* Question progress, timer, and grade badge */}
+              {/* Slide progress, timer, mode controls and grade badge */}
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3 mb-4 flex-wrap">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200">
                     {currentQ.gradeLevelTag}
                   </span>
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
                     {currentDiffSettings.badge}
                   </span>
-                  <span className="text-xs font-medium text-slate-500">
-                    Câu {currentQuestionIdx + 1} / {currentPool.length}
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                    Slide {currentQuestionIdx + 1} / {currentPool.length}
                   </span>
                 </div>
 
-                {/* Timer & Hint Controls */}
-                <div className="flex items-center gap-3">
+                {/* Timer, Mode toggle & Hint Controls */}
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  {/* Answer mode switch */}
+                  <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-[11px]">
+                    <button
+                      onClick={() => {
+                        setAutoSubmitOnClick(true);
+                        soundFx.playClick();
+                      }}
+                      className={`px-2 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                        autoSubmitOnClick
+                          ? 'bg-teal-600 text-white shadow-xs'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                      title="Bấm chọn đáp án là biết ngay Đúng hay Sai"
+                    >
+                      ⚡ Chấm ngay
+                    </button>
+                    <button
+                      onClick={() => {
+                        setAutoSubmitOnClick(false);
+                        soundFx.playClick();
+                      }}
+                      className={`px-2 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                        !autoSubmitOnClick
+                          ? 'bg-teal-600 text-white shadow-xs'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                      title="Chọn đáp án rồi mới bấm nút Kiểm tra để biết đúng hay sai"
+                    >
+                      🎯 Bấm nút kiểm tra
+                    </button>
+                  </div>
+
                   {/* Countdown Timer */}
                   <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold border transition-colors ${
                     timeLeft <= 10 && !isAnswerSubmitted
@@ -380,6 +433,44 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
                 </div>
               </div>
 
+              {/* Slide Navigation Dots / Quick Jump */}
+              <div className="flex items-center gap-1.5 mb-3 overflow-x-auto pb-1">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1 shrink-0">
+                  Slide câu:
+                </span>
+                {currentPool.map((_, sIdx) => {
+                  const history = answersHistory[sIdx];
+                  const isCurrent = sIdx === currentQuestionIdx;
+                  return (
+                    <button
+                      key={sIdx}
+                      onClick={() => {
+                        if (isAnswerSubmitted || history || sIdx <= currentQuestionIdx) {
+                          setCurrentQuestionIdx(sIdx);
+                          setSelectedOption(history ? history.selected : null);
+                          setIsAnswerSubmitted(!!history);
+                          setShowHint(false);
+                          soundFx.playClick();
+                        }
+                      }}
+                      disabled={!history && sIdx > currentQuestionIdx}
+                      className={`w-7 h-7 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center justify-center cursor-pointer ${
+                        isCurrent
+                          ? 'bg-teal-600 text-white ring-2 ring-teal-400/60 shadow-xs scale-105'
+                          : history?.isCorrect
+                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                          : history && !history.isCorrect
+                          ? 'bg-rose-100 text-rose-800 border border-rose-300'
+                          : 'bg-slate-100 text-slate-400 border border-slate-200 opacity-60'
+                      }`}
+                      title={`Slide ${sIdx + 1}`}
+                    >
+                      {sIdx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+
               {/* Progress bar */}
               <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden mb-5">
                 <div 
@@ -407,17 +498,37 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
                   const isSelected = selectedOption === idx;
                   const isCorrect = idx === currentQ.correctIndex;
 
-                  let optStyle = 'bg-slate-50 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/40 text-slate-800';
+                  let optStyle = 'bg-slate-50/90 border-slate-200 hover:border-sky-400 hover:bg-sky-50/40 text-slate-800';
+                  let badgeLabel = null;
+
                   if (isAnswerSubmitted) {
                     if (isCorrect) {
-                      optStyle = 'bg-emerald-50 border-emerald-500 text-emerald-900 font-bold ring-2 ring-emerald-400/40';
+                      optStyle = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400/50 shadow-xs';
+                      badgeLabel = (
+                        <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>Đáp án đúng</span>
+                        </span>
+                      );
                     } else if (isSelected && !isCorrect) {
-                      optStyle = 'bg-red-50 border-red-400 text-red-900 ring-2 ring-red-400/30';
+                      optStyle = 'bg-rose-50 border-rose-400 text-rose-950 font-bold ring-2 ring-rose-400/40 shadow-xs';
+                      badgeLabel = (
+                        <span className="px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 font-bold text-[11px] flex items-center gap-1">
+                          <XCircle className="w-3.5 h-3.5 text-rose-600" />
+                          <span>Bạn chọn (Chưa đúng)</span>
+                        </span>
+                      );
                     } else {
                       optStyle = 'bg-slate-50 border-slate-200 text-slate-400 opacity-60';
                     }
                   } else if (isSelected) {
-                    optStyle = 'bg-emerald-50/90 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400/40 shadow-xs';
+                    // Selected state before evaluating: clean neutral Sky Blue (never green or red!)
+                    optStyle = 'bg-sky-50/90 border-sky-500 text-sky-950 font-bold ring-2 ring-sky-400/40 shadow-xs';
+                    badgeLabel = (
+                      <span className="px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 font-bold text-[11px] flex items-center gap-1">
+                        <span>Đã chọn</span>
+                      </span>
+                    );
                   }
 
                   return (
@@ -429,18 +540,29 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
                       className={`w-full p-3.5 sm:p-4 rounded-xl border text-left text-xs sm:text-sm transition-all flex items-center justify-between gap-3 cursor-pointer ${optStyle}`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-bold text-xs text-slate-700 shrink-0 shadow-xs">
+                        <span className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 shadow-xs transition-colors ${
+                          isAnswerSubmitted && isCorrect
+                            ? 'bg-emerald-600 text-white'
+                            : isAnswerSubmitted && isSelected && !isCorrect
+                            ? 'bg-rose-600 text-white'
+                            : isSelected
+                            ? 'bg-sky-600 text-white'
+                            : 'bg-white border border-slate-300 text-slate-700'
+                        }`}>
                           {String.fromCharCode(65 + idx)}
                         </span>
-                        <span>{opt}</span>
+                        <span className="leading-snug">{opt}</span>
                       </div>
 
-                      {isAnswerSubmitted && isCorrect && (
-                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                      )}
-                      {isAnswerSubmitted && isSelected && !isCorrect && (
-                        <XCircle className="w-5 h-5 text-red-500 shrink-0" />
-                      )}
+                      <div className="shrink-0 flex items-center gap-2">
+                        {badgeLabel}
+                        {isAnswerSubmitted && isCorrect && (
+                          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                        )}
+                        {isAnswerSubmitted && isSelected && !isCorrect && (
+                          <XCircle className="w-5 h-5 text-rose-500 shrink-0" />
+                        )}
+                      </div>
                     </button>
                   );
                 })}
@@ -450,49 +572,74 @@ export const InteractiveGames: React.FC<InteractiveGamesProps> = ({
               {isAnswerSubmitted && (
                 <div className={`p-4 rounded-xl border mb-6 text-xs sm:text-sm leading-relaxed ${
                   selectedOption === currentQ.correctIndex
-                    ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
-                    : 'bg-amber-50 border-amber-200 text-amber-900'
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-950'
+                    : 'bg-amber-50 border-amber-200 text-amber-950'
                 }`}>
                   <div className="font-bold mb-1 flex items-center gap-1.5">
                     {selectedOption === currentQ.correctIndex ? (
-                      <span className="text-emerald-700 flex items-center gap-1">
+                      <span className="text-emerald-700 flex items-center gap-1 font-extrabold">
                         <CheckCircle2 className="w-4 h-4" /> Chính xác! (+{Math.round((activeGameLevel === 'primary' ? 20 : activeGameLevel === 'secondary' ? 30 : 40) * currentDiffSettings.multiplier)} điểm)
                       </span>
                     ) : (
-                      <span className="text-amber-800 flex items-center gap-1">
-                        <HelpCircle className="w-4 h-4" /> Giải thích kiến thức chuẩn SGK:
+                      <span className="text-rose-700 flex items-center gap-1 font-extrabold">
+                        <XCircle className="w-4 h-4 text-rose-600" /> Chưa chính xác! Giải thích kiến thức chuẩn SGK:
                       </span>
                     )}
                   </div>
-                  <p>{currentQ.explanation}</p>
+                  <p className="text-slate-700 font-medium">{currentQ.explanation}</p>
                 </div>
               )}
 
               {/* Action Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-2">
-                {!isAnswerSubmitted ? (
-                  <button
-                    id="submit-answer-btn"
-                    onClick={() => handleSubmitAnswer(false)}
-                    disabled={selectedOption === null}
-                    className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                      selectedOption !== null
-                        ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white hover:from-teal-500 hover:to-emerald-500 shadow-md'
-                        : 'bg-slate-200 text-slate-400 cursor-not-allowed'
-                    }`}
-                  >
-                    Kiểm Tra Đáp Án
-                  </button>
-                ) : (
-                  <button
-                    id="next-question-btn"
-                    onClick={handleNextQuestion}
-                    className="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-emerald-600 text-white hover:bg-emerald-500 shadow-md flex items-center gap-1.5 cursor-pointer transition-all"
-                  >
-                    <span>{currentQuestionIdx < currentPool.length - 1 ? 'Câu Tiếp Theo' : 'Xem Bảng Kết Quả'}</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                )}
+              <div className="flex items-center justify-between gap-3 pt-2 flex-wrap">
+                <div className="text-xs text-slate-500 font-medium">
+                  {!isAnswerSubmitted ? (
+                    autoSubmitOnClick ? (
+                      <span className="text-teal-700 font-semibold flex items-center gap-1">
+                        💡 Bấm chọn 1 đáp án bất kì để biết ngay Đúng hay Sai!
+                      </span>
+                    ) : (
+                      <span className="text-slate-600">
+                        {selectedOption === null 
+                          ? 'Hãy chọn 1 đáp án rồi bấm "Kiểm Tra Đáp Án"' 
+                          : 'Đã chọn đáp án. Bấm "Kiểm Tra Đáp Án" để xem kết quả!'}
+                      </span>
+                    )
+                  ) : (
+                    <span className="font-semibold text-slate-700">
+                      {selectedOption === currentQ.correctIndex ? '🎉 Chúc mừng bạn đã trả lời đúng!' : '💡 Đọc kĩ phần giải thích để nhớ bài nhé!'}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {!isAnswerSubmitted ? (
+                    !autoSubmitOnClick && (
+                      <button
+                        id="submit-answer-btn"
+                        onClick={() => handleSubmitAnswer(false)}
+                        disabled={selectedOption === null}
+                        className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-1.5 ${
+                          selectedOption !== null
+                            ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white hover:from-teal-500 hover:to-emerald-500 shadow-md animate-pulse'
+                            : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                        }`}
+                      >
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>Kiểm Tra Đáp Án</span>
+                      </button>
+                    )
+                  ) : (
+                    <button
+                      id="next-question-btn"
+                      onClick={handleNextQuestion}
+                      className="px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-500 hover:to-teal-500 shadow-md flex items-center gap-1.5 cursor-pointer transition-all transform hover:scale-105"
+                    >
+                      <span>{currentQuestionIdx < currentPool.length - 1 ? 'Câu Tiếp Theo' : 'Xem Bảng Kết Quả'}</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ) : (

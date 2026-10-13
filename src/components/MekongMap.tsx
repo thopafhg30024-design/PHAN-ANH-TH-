@@ -16,7 +16,6 @@ import {
   X, 
   Zap, 
   Waves, 
-  School,
   Sparkles,
   Camera,
   Navigation,
@@ -70,8 +69,7 @@ export const MekongMap: React.FC<MekongMapProps> = ({ selectedLevel, language = 
     photos: true,
     dams: true,
     geography: true,
-    estuaries: true,
-    school: true
+    estuaries: true
   });
 
   const handleSelectStation = (station: RiverStation) => {
@@ -137,9 +135,9 @@ export const MekongMap: React.FC<MekongMapProps> = ({ selectedLevel, language = 
               <span className="text-[10px] text-emerald-100 block">{isEn ? 'Flood season: 70 - 80%' : 'Mùa lũ chiếm 70 - 80%'}</span>
             </div>
             <div className="bg-white/20 backdrop-blur-md p-3 rounded-xl border border-white/30 text-white">
-              <span className="text-[11px] text-orange-100 block font-medium">{isEn ? 'School Location' : 'Vị trí trường'}</span>
-              <span className="text-lg font-bold text-orange-200">FPT Hậu Giang</span>
-              <span className="text-[10px] text-emerald-100 block">Vi Thuy, Hau Giang / Can Tho</span>
+              <span className="text-[11px] text-orange-100 block font-medium">{isEn ? 'Mekong Delta Area' : 'Châu thổ ĐBSCL'}</span>
+              <span className="text-lg font-bold text-orange-200">~40 000 km²</span>
+              <span className="text-[10px] text-emerald-100 block">{isEn ? '9 Estuary Branches' : '9 Cửa sông đổ ra Biển Đông'}</span>
             </div>
           </div>
         </div>
@@ -280,18 +278,6 @@ export const MekongMap: React.FC<MekongMapProps> = ({ selectedLevel, language = 
             >
               <Waves className="w-3 h-3" />
               <span>9 Cửa sông</span>
-            </button>
-            <button
-              id="toggle-layer-school"
-              onClick={() => toggleLayer('school')}
-              className={`px-2.5 py-1 rounded-lg border text-xs font-medium transition-all flex items-center gap-1 cursor-pointer ${
-                layers.school
-                  ? 'bg-orange-50 border-orange-500 text-orange-800 font-bold'
-                  : 'bg-slate-100 border-slate-200 text-slate-500 opacity-60'
-              }`}
-            >
-              <School className="w-3 h-3" />
-              <span>FPT Hậu Giang</span>
             </button>
           </div>
         )}
@@ -644,27 +630,6 @@ export const MekongMap: React.FC<MekongMapProps> = ({ selectedLevel, language = 
                         </text>
                       </g>
                     ))}
-                  </g>
-                )}
-
-                {/* School Marker Layer: Trường TH, THCS & THPT FPT Hậu Giang */}
-                {layers.school && (
-                  <g id="fpt-school-pin" className="cursor-pointer">
-                    <circle cx="340" cy="605" r="14" fill="#f97316" fillOpacity="0.25" className="animate-ping" />
-                    <circle cx="340" cy="605" r="7" fill="#ea580c" stroke="#ffffff" strokeWidth="2" />
-                    <rect
-                      x="230"
-                      y="612"
-                      width="155"
-                      height="20"
-                      rx="5"
-                      fill="#fff7ed"
-                      stroke="#ea580c"
-                      strokeWidth="1.2"
-                    />
-                    <text x="236" y="625" fill="#9a3412" fontSize="8.5" fontWeight="bold">
-                      🏫 FPT HẬU GIANG (Vị Thủy)
-                    </text>
                   </g>
                 )}
 

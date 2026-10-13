@@ -126,36 +126,29 @@ const KNOWLEDGE_CHAPTERS = [
     badge: 'Cốt lõi'
   },
   {
-    id: 'hydrology',
-    title: '2. Thủy Văn & "Bể Điều Hòa" Tonle Sap',
-    subtitle: 'Chế độ dòng chảy theo mùa, hiện tượng chảy ngược và phân bố nguồn nước',
-    icon: Droplets,
-    badge: 'Thủy văn'
-  },
-  {
     id: 'delta-estuaries',
-    title: '3. Châu Thổ Cửu Long & 9 Cửa Sông',
+    title: '2. Châu Thổ Cửu Long & 9 Cửa Sông',
     subtitle: 'Hệ thống Sông Tiền - Sông Hậu, 9 nhánh rồng, kênh rạch và FPT Hậu Giang',
     icon: Waves,
     badge: 'Việt Nam'
   },
   {
     id: 'socio-economic',
-    title: '4. Vai Trò Đối Với Kinh Tế - Xã Hội',
+    title: '3. Vai Trò Đối Với Kinh Tế - Xã Hội',
     subtitle: 'Nông nghiệp vựa lúa, ngư trường số 1 thế giới, thủy điện, giao thông thủy & du lịch văn hóa',
     icon: TrendingUp,
     badge: 'Kinh tế - Xã hội'
   },
   {
     id: 'ecology',
-    title: '5. Đa Dạng Sinh Học & Loài Cá Khổng Lồ',
+    title: '4. Đa Dạng Sinh Học & Loài Cá Khổng Lồ',
     subtitle: 'Vương quốc thủy sản nước ngọt lớn thứ 2 thế giới, các khu Ramsar đất ngập nước',
     icon: Fish,
     badge: 'Sinh thái'
   },
   {
     id: 'security-solutions',
-    title: '6. Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước',
+    title: '5. Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước',
     subtitle: 'Phân tích các mục đích khai thác, những vấn đề nảy sinh và giải pháp bảo vệ theo chuẩn SGK Địa lí 11',
     icon: ShieldCheck,
     badge: 'Trọng Tâm SGK Địa 11'
@@ -510,73 +503,11 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
             </div>
           )}
 
-          {/* Chapter 2: Thủy Văn & Tonle Sap */}
-          {activeChapterId === 'hydrology' && (
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-6 text-slate-700">
-              <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold text-cyan-700 uppercase tracking-wide">Chương 2 • Quy Luật Tự Nhiên Kỳ Diệu</span>
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
-                  Thủy Văn & Cơ Chế "Dòng Sông Chảy Ngược" Của Biển Hồ Tonle Sap
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Mối quan hệ thủy văn sống còn giữa Biển Hồ Tonle Sap và Đồng bằng sông Cửu Long.
-                </p>
-              </div>
-
-              {/* Tonle Sap Phenomenon Infobox */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50 to-teal-50/50 border border-cyan-200 text-xs space-y-3">
-                <div className="flex items-center gap-2 text-cyan-900 font-bold text-sm">
-                  <Droplets className="w-5 h-5 text-cyan-600" />
-                  <span>Hiện Tượng Độc Nhất Vô Nhị: Sông Tonle Sap Đổi Chiều Dòng Chảy</span>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Sông Tonle Sap nối Biển Hồ với ngã tư bốn mặt Chaktomuk (Phnom Penh) là con sông hiếm hoi trên thế giới có khả năng <strong>tự đổi chiều dòng chảy 2 lần mỗi năm</strong> theo chu kỳ gió mùa:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                  <div className="p-3 bg-white rounded-xl border border-cyan-200/80 shadow-xs">
-                    <span className="font-bold text-cyan-800 block mb-1">🌊 Mùa Lũ (Tháng 6 - Tháng 10):</span>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
-                      Lưu lượng sông Mê Kông lên cực đại, mực nước sông chính cao hơn Biển Hồ, nước tràn <strong>chảy ngược từ sông Mê Kông vào Biển Hồ</strong>. Diện tích hồ phình to gấp 5-6 lần (từ 2.500 km² lên 16.000 km²), dung tích trữ nước đạt tới 80 tỉ m³.
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white rounded-xl border border-amber-200/80 shadow-xs">
-                    <span className="font-bold text-amber-800 block mb-1">☀️ Mùa Khô (Tháng 11 - Tháng 5):</span>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
-                      Mực nước sông Mê Kông rút xuống thấp, <strong>Biển Hồ xả ngược nước ra sông Mê Kông</strong> qua sông Tonle Sap, bổ sung nguồn nước ngọt quý giá cứu hạn và đẩy mặn cho toàn bộ vùng châu thổ ĐBSCL của Việt Nam.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ecological & Economic value */}
-              <div className="space-y-3">
-                <h3 className="text-sm font-bold text-emerald-800 flex items-center gap-2">
-                  <Fish className="w-4 h-4 text-emerald-600" />
-                  <span>Vai Trò Cốt Tử Đối Với ĐBSCL (Kiến Thức SGK Địa Lí 11):</span>
-                </h3>
-                <ul className="space-y-2 text-xs text-slate-700">
-                  <li className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span><strong>Giảm áp lực ngập úng mùa lũ:</strong> Hồ hoạt động như một túi chứa nước khổng lồ hấp thụ đỉnh lũ từ thượng lưu, giúp các tỉnh đầu nguồn An Giang, Đồng Tháp không bị ngập sâu đột ngột.</span>
-                  </li>
-                  <li className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span><strong>Cung cấp nước ngọt mùa kiệt & Đẩy mặn:</strong> Lượng nước hồ xả ra trong mùa khô đóng góp tới 50% dòng chảy vào ĐBSCL, là tấm khiên tự nhiên ngăn mặn từ Biển Đông xâm nhập sâu vào ruộng đồng.</span>
-                  </li>
-                  <li className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span><strong>Vựa cá và ấu trùng thủy sản:</strong> Biển Hồ là nơi sinh sản lớn nhất của cá nước ngọt Đông Nam Á; mùa xả nước đưa hàng triệu tấn cá con trôi theo dòng nước về nuôi sống đồng ruộng phương Nam.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
-
-          {/* Chapter 3: ĐBSCL & 9 Cửa Sông */}
+          {/* Chapter 2: ĐBSCL & 9 Cửa Sông */}
           {activeChapterId === 'delta-estuaries' && (
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-6 text-slate-700">
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Chương 3 • Đất Chín Rồng Phương Nam</span>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Chương 2 • Đất Chín Rồng Phương Nam</span>
                 <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                   Đồng Bằng Sông Cửu Long & Hệ Thống 9 Cửa Sông Ra Biển Đông
                 </h2>
@@ -644,13 +575,13 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
             </div>
           )}
 
-          {/* Chapter 4: Vai Trò Của Sông Mê Kông Đối Với Kinh Tế - Xã Hội */}
+          {/* Chapter 3: Vai Trò Của Sông Mê Kông Đối Với Kinh Tế - Xã Hội */}
           {activeChapterId === 'socio-economic' && (
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-7 text-slate-700">
               <div className="border-b border-slate-100 pb-5">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
                   <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                    Chương 4 • Trọng Tâm SGK Địa Lí 11 & Sinh Kế Lưu Vực
+                    Chương 3 • Trọng Tâm SGK Địa Lí 11 & Sinh Kế Lưu Vực
                   </span>
                   <span className="text-[11px] font-semibold text-slate-500">
                     Lưu vực 6 quốc gia • Nuôi sống 65 triệu dân
@@ -1101,11 +1032,11 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
             </div>
           )}
 
-          {/* Chapter 5: Đa Dạng Sinh Học */}
+          {/* Chapter 4: Đa Dạng Sinh Học */}
           {activeChapterId === 'ecology' && (
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-6 text-slate-700">
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">Chương 5 • Vương Quốc Sinh Vật Nước Ngọt</span>
+                <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">Chương 4 • Vương Quốc Sinh Vật Nước Ngọt</span>
                 <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                   Đa Dạng Sinh Học Sông Mê Kông & Loài Cá Khổng Lồ
                 </h2>
@@ -1176,14 +1107,14 @@ export const MekongKnowledge: React.FC<MekongKnowledgeProps> = ({
             </div>
           )}
 
-          {/* Chapter 6: Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước (Mục 4 SGK Địa lí 11) */}
+          {/* Chapter 5: Khai Thác, Sử Dụng Nguồn Nước & Bảo Vệ Môi Trường Nước (Mục 4 SGK Địa lí 11) */}
           {activeChapterId === 'security-solutions' && (
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-md space-y-8 text-slate-700">
               {/* Header with Curriculum Standard */}
               <div className="border-b border-slate-100 pb-5">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="px-3 py-1 rounded-full text-[11px] font-extrabold bg-amber-100 text-amber-900 border border-amber-300 uppercase tracking-wide">
-                    Mục 4 Chuyên Đề Địa Lí 11 • Trọng Tâm Thi Cử
+                    Chương 5 • Mục 4 Chuyên Đề Địa Lí 11
                   </span>
                   <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
                     Chuẩn GDPT 2018

@@ -191,12 +191,12 @@ export const RIVER_STATIONS: RiverStation[] = [
       'Phân lưu thành 2 nhánh lớn: Sông Tiền (Mekong) & Sông Hậu (Bassac)',
       'Vùng ngập lũ tự nhiên Đồng Tháp Mười & Tứ giác Long Xuyên',
       'Thành phố Cần Thơ & Bến Ninh Kiều, Chợ nổi Cái Răng',
-      'Trường TH, THCS & THPT FPT Hậu Giang & Kênh xáng Xà No (Vị Thủy, Hậu Giang)',
+      'Kênh xáng Xà No & Vùng chuyên canh lúa gạo Hậu Giang',
       'Hệ thống 9 Cửa sông Cửu Long đổ ra Biển Đông',
       'Rừng ngập mặn Cà Mau & Khu Ramsar Tràm Chim'
     ],
     highlight: 'Vựa lúa, trái cây và thủy sản lớn nhất Việt Nam, hòa vào Biển Đông bao la qua 9 nhánh rồng.',
-    details: 'Chảy vào Việt Nam tại Vĩnh Xương (An Giang) và Thường Phước (Đồng Tháp), chia thành 2 nhánh chính là Sông Tiền và Sông Hậu, tạo nên vùng châu thổ rộng lớn hơn 40.000 km² trù phú bậc nhất. Đây cũng là nơi Trường TH, THCS & THPT FPT Hậu Giang tọa lạc tại 61C Ấp 6, xã Vị Thủy, kết nối với dòng kênh xáng Xà No lịch sử.',
+    details: 'Chảy vào Việt Nam tại Vĩnh Xương (An Giang) và Thường Phước (Đồng Tháp), chia thành 2 nhánh chính là Sông Tiền và Sông Hậu, tạo nên vùng châu thổ rộng lớn hơn 40.000 km² trù phú bậc nhất với mạng lưới kênh rạch chằng chịt, kết nối với dòng kênh xáng Xà No lịch sử.',
     ecologicalFact: 'Hệ sinh thái đất ngập nước Ramsar Tràm Chim, Rừng ngập mặn Mũi Cà Mau, Lung Ngọc Hoàng, sinh cảnh lúa - tôm thích ứng biến đổi khí hậu.',
     curriculumGradeNote: {
       primary: 'Vùng đất phương Nam mến yêu với những cánh đồng lúa thẳng cánh cò bay, chợ nổi nhộn nhịp xuồng ghe và dòng sông hiền hòa!',
